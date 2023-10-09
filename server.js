@@ -1,15 +1,20 @@
 require('dotenv').config()
 
 const express = require('express')
-const cors = require('cors')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 
 // express app
 const app = express()
 
+//cors
+const cors = require('cors')
+
 // middleware
-app.use(cors())
+app.use(
+  cors({
+    origin: ["https://workout-buddy-backend-chyp.onrender.com", "http://localhost:3000"] 
+  }))
 app.use(express.json())
 
 app.use((req, res, next) => {
