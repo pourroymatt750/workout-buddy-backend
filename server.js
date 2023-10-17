@@ -18,6 +18,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// With this code using the 'cors' middleware:
+app.use(
+  cors({
+    origin: [
+      "https://workout-buddy-backend-chyp.onrender.com", 
+      "http://localhost:3000",
+      "https://workout-buddy-tzli.onrender.com"
+    ]
+  })
+);
+
 app.use(express.json())
 
 app.use((req, res, next) => {
